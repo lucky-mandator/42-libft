@@ -6,7 +6,7 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 11:40:39 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/16 12:22:21 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/16 13:21:25 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void *ft_memchr(const void *str, int c, size_t n);
 void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 void    *ft_memset(void *dest, int letter, size_t size);
 int     ft_strlcpy(char *dest, char *src, unsigned int size);
+char    *ft_strchr(const char *str, int c);
+char    *ft_strrchr(const char *s, int c);
 
 #endif
