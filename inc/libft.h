@@ -6,7 +6,7 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 11:40:39 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/16 13:21:25 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/16 14:18:26 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void    *ft_memset(void *dest, int letter, size_t size);
 int     ft_strlcpy(char *dest, char *src, unsigned int size);
 char    *ft_strchr(const char *str, int c);
 char    *ft_strrchr(const char *s, int c);
+char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
+int     ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
