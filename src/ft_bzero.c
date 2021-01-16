@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/14 13:23:30 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/14 14:21:18 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/14 12:57:20 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/16 12:44:43 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
-{
-	char		*d;
-	const char	*s;
+#include "../inc/libft.h"
 
-	d = dst;
-	s = src;
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+void	*ft_bzero(void *s, size_t n)
+{
+	unsigned char *str;
+
+	str = s;
+	if (n != 0)
+	{
+		while (n-- > 0)
+			*str++ = '\0';
+	}
+	return (s);
 }
