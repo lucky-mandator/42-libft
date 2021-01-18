@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 11:01:56 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/16 12:29:20 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/14 12:57:20 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/16 12:44:43 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_bzero(void *s, size_t n)
 {
-	int					i;
-	unsigned char		*str1;
-	unsigned char		*str2;
+	unsigned char *str;
 
-	str1 = (unsigned char*)s1;
-	str2 = (unsigned char*)s2;
-	i = 0;
-	while (i < (int)n)
+	str = s;
+	if (n != 0)
 	{
-		if ((str1[i]) != (str2[i]))
-			return ((str1)[i] - (str2)[i]);
-		i++;
+		while (n-- > 0)
+			*str++ = '\0';
 	}
-	return (0);
+	return (s);
 }

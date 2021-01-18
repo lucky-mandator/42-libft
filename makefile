@@ -1,23 +1,30 @@
-CC = gcc  # C compiler
-CFLAGS = -fPIC -Wall -Wextra -O2 -g  # C flags
-LDFLAGS = -shared   # linking flags
-RM = rm -f   # rm command
-TARGET_LIB = libtarget.so  # target lib
+NAME = libft.a
+HEADER = libft.h
+CFLAGS = -Wall -Wextra -Werror
+CC = gcc
+AR = ar rc
+RM = rm -f
 
-SRCS = main.c src1.c src2.c  # source files
+BSRCS = $(wildcard *lst*.c)
+SRCS = $(filter-out $(BSRCS), $(wildcard *.c))
 OBJS = $(SRCS:.c=.o)
+BOBJS = $(BSRCS:.c=.o)
 
-.PHONY: all
-all: ${TARGET_LIB}
+all: $(NAME)
 
-$(TARGET_LIB): $(OBJS)
-	$(CC) ${LDFLAGS} -o $@ $^
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
-$(SRCS:.c=.d):%.d:%.c
-	$(CC) $(CFLAGS) -MM $< >$@
+bonus: $(BOBJS) $(OBJS)
+	$(AR) $(NAME) $^
 
-include $(SRCS:.c=.d)
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: clean
 clean:
-	-${RM} ${TARGET_LIB} ${OBJS} $(SRCS:.c=.d)
+	$(RM) $(OBJS) $(BOBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
