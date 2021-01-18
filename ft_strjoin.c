@@ -1,44 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 12:19:37 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/18 13:08:20 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/18 14:08:33 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/18 14:08:39 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
 
-static int	str_len(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char		*ft_strdup(const char *src)
-{
-	int		i;
-	int		len;
-	char	*tab;
-
-	i = 0;
-	len = str_len(src);
-	if (src == '\0')
-		return (0);
-	tab = ft_calloc(len, *src);
-	while (src[i])
-	{
-		tab[i] = src[i];
-		i++;
-	}
-	tab[i] = '\0';
-	return (tab);
-}

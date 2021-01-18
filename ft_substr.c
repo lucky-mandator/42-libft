@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 12:19:37 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/18 13:08:20 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/18 13:10:43 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/18 14:08:57 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	str_len(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char		*ft_strdup(const char *src)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	int		i;
-	int		len;
-	char	*tab;
+	char	*sub_str;
 
 	i = 0;
-	len = str_len(src);
-	if (src == '\0')
+	if (s == '\0')
 		return (0);
-	tab = ft_calloc(len, *src);
-	while (src[i])
+	sub_str = ft_calloc(len + 1, *s);
+	len = start + len;
+	while (start < len)
 	{
-		tab[i] = src[i];
+		sub_str[i] = s[start];
 		i++;
+		start++;
 	}
-	tab[i] = '\0';
-	return (tab);
+	sub_str[i] = '\0';
+	return (sub_str);
 }
