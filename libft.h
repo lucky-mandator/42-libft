@@ -6,7 +6,7 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 11:40:39 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/18 12:14:44 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/18 13:02:33 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_strdup(const char *src);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif
