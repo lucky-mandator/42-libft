@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 11:50:36 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/21 13:48:16 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/21 11:33:38 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/21 12:09:47 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int		i;
-	size_t				len;
-
-	i = 0;
-	len = 0;
-	if (!dest || !src)
-		return (0);
-	if (s > 0)
-	{
-		while (src[i] && --s)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	while (src[len])
-		len++;
-	return (len);
+	while (*s != '\0')
+		write(fd, s++, 1);
 }

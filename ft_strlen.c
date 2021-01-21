@@ -6,7 +6,7 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 11:41:56 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/16 12:42:08 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/21 13:43:45 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while (str[i] != 0)
+	if (!str)
+		return (i);
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
