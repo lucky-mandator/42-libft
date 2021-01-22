@@ -6,7 +6,7 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 13:10:43 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/18 14:08:57 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/22 14:48:14 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub_str;
 
 	i = 0;
-	if (s == '\0')
+	if (s == '\0' || ft_strlen(s) < start)
 		return (0);
 	sub_str = ft_calloc(len + 1, *s);
 	len = start + len;
