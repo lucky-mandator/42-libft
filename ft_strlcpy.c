@@ -6,13 +6,13 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 11:50:36 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/21 13:48:16 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/23 11:42:37 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t s)
+size_t	ft_strlcpy(char *dest, const char *src, size_t s)
 {
 	unsigned int		i;
 	size_t				len;
