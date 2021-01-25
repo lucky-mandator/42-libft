@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 13:23:03 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/25 08:40:06 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/25 11:23:49 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/25 13:43:20 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t len2;
+	t_list	*elt;
+	t_list	*tmp;
 
-	if (*s2 == '\0')
-		return ((char *)s1);
-	len2 = ft_strlen(s2);
-	while (*s1 != '\0' && len-- >= len2)
+	elt = 0;
+	while (lst)
 	{
-		if (*s1 == *s2 && ft_strncmp(s1, s2, len2) == 0)
-			return ((char *)s1);
-		s1++;
+		if (!(tmp = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&elt, del);
+			return (0);
+		}
+		ft_lstadd_back(&elt, tmp);
+		lst = lst->next;
 	}
-	return (NULL);
+	return (elt);
 }

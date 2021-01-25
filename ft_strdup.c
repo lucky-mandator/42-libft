@@ -6,7 +6,7 @@
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:19:37 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/18 13:08:20 by saluru           ###   ########.fr       */
+/*   Updated: 2021/01/25 08:51:17 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		*ft_strdup(const char *src)
 	len = str_len(src);
 	if (src == '\0')
 		return (0);
-	tab = ft_calloc(len, *src);
+	tab = (char *)malloc((char)*src * len);
 	while (src[i])
 	{
 		tab[i] = src[i];

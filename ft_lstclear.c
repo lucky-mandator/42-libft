@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saluru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 13:23:03 by saluru            #+#    #+#             */
-/*   Updated: 2021/01/25 08:40:06 by saluru           ###   ########.fr       */
+/*   Created: 2021/01/25 09:06:30 by saluru            #+#    #+#             */
+/*   Updated: 2021/01/25 09:32:23 by saluru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t len2;
+	t_list *tmp;
 
-	if (*s2 == '\0')
-		return ((char *)s1);
-	len2 = ft_strlen(s2);
-	while (*s1 != '\0' && len-- >= len2)
+	if (lst)
 	{
-		if (*s1 == *s2 && ft_strncmp(s1, s2, len2) == 0)
-			return ((char *)s1);
-		s1++;
+		while (*lst)
+		{
+			tmp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = tmp;
+		}
 	}
-	return (NULL);
 }
